@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>CV - Marcos Campos</title>
     <!-- Carga de Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -28,6 +29,195 @@
 				background-position: center;
 				background-repeat: no-repeat;
 			}
+			
+			/* Estilos de impresión para que el CV se vea igual en PDF */
+			@media print {
+				/* Habilitar impresión de fondos y colores - CRÍTICO */
+				* {
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+					color-adjust: exact !important;
+				}
+				
+				html, body {
+					background-color: #f3f4f6 !important;
+					margin: 0 !important;
+					padding: 0 !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Configuración de página */
+				@page {
+					margin: 0.5cm !important;
+					size: A4 portrait !important;
+				}
+				
+				/* Mantener el contenedor principal */
+				.max-w-6xl {
+					max-width: 100% !important;
+					margin: 0 auto !important;
+					box-shadow: none !important;
+					border-radius: 0 !important;
+					background-color: white !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Asegurar que el header mantenga su fondo oscuro con imagen */
+				header.bg-slate-800,
+				header.header-programming,
+				header[class*="bg-slate-800"],
+				header[class*="header-programming"] {
+					background-color: #1e293b !important;
+					background-image: linear-gradient(rgba(30,41,59,0.88), rgba(30,41,59,0.88)), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=60') !important;
+					background-size: cover !important;
+					background-position: center !important;
+					background-repeat: no-repeat !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+					color-adjust: exact !important;
+					page-break-inside: avoid !important;
+					page-break-after: avoid !important;
+				}
+				
+				/* Sobrescribir cualquier clase de Tailwind print que pueda afectar el header */
+				header.print\:bg-slate-800 {
+					background-color: #1e293b !important;
+					background-image: linear-gradient(rgba(30,41,59,0.88), rgba(30,41,59,0.88)), url('https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1600&q=60') !important;
+				}
+				
+				/* Mantener colores del texto del header */
+				header.text-white {
+					color: white !important;
+				}
+				
+				header h1.text-cyan-300 {
+					color: #67e8f9 !important;
+				}
+				
+				header h2.text-slate-200 {
+					color: #e2e8f0 !important;
+				}
+				
+				/* Mantener el borde de la foto */
+				header img {
+					border: 8px solid #475569 !important;
+					box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Mantener el layout de dos columnas */
+				.grid {
+					display: grid !important;
+					grid-template-columns: 1fr 2fr !important;
+				}
+				
+				/* Asegurar que aside mantenga su fondo gris claro */
+				aside.bg-slate-100 {
+					background-color: #f1f5f9 !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+					color-adjust: exact !important;
+					page-break-inside: avoid !important;
+				}
+				
+				/* Mantener fondo blanco del main */
+				main {
+					background-color: white !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Mantener colores de los badges/chips cyan */
+				span.bg-cyan-600 {
+					background-color: #0891b2 !important;
+					color: white !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+					color-adjust: exact !important;
+				}
+				
+				/* Mantener colores de los badges/chips slate */
+				span.bg-slate-600 {
+					background-color: #475569 !important;
+					color: white !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+					color-adjust: exact !important;
+				}
+				
+				/* Mantener bordes cyan de los títulos */
+				.border-cyan-400 {
+					border-color: #22d3ee !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Colores de texto para títulos */
+				.text-slate-700,
+				h3.text-slate-700,
+				h4.text-slate-800,
+				h5.text-slate-700 {
+					color: #334155 !important;
+				}
+				
+				.text-slate-800,
+				h4.text-slate-800 {
+					color: #1e293b !important;
+				}
+				
+				/* Colores de texto para párrafos y listas */
+				.text-gray-700,
+				.text-gray-600,
+				p.text-gray-700,
+				li.text-gray-700,
+				span.text-gray-600 {
+					color: #374151 !important;
+				}
+				
+				/* Colores cyan para enlaces e íconos */
+				.text-cyan-600,
+				svg.text-cyan-600,
+				a.text-cyan-600 {
+					color: #0891b2 !important;
+					fill: #0891b2 !important;
+					stroke: #0891b2 !important;
+				}
+				
+				/* Colores de texto slate para contactos */
+				.text-slate-600,
+				span.text-slate-600,
+				p.text-slate-600 {
+					color: #475569 !important;
+				}
+				
+				/* Evitar saltos de página en secciones importantes */
+				section {
+					page-break-inside: avoid !important;
+					page-break-after: avoid !important;
+				}
+				
+				/* Asegurar que los SVGs se vean con colores */
+				svg {
+					fill: currentColor !important;
+					stroke: currentColor !important;
+					-webkit-print-color-adjust: exact !important;
+					print-color-adjust: exact !important;
+				}
+				
+				/* Enlaces */
+				a {
+					color: inherit !important;
+					text-decoration: none !important;
+				}
+				
+				a.hover\:text-cyan-700:hover,
+				a.hover\:underline:hover {
+					color: #0891b2 !important;
+				}
+			}
     </style>
 </head>
 <body>
@@ -41,7 +231,7 @@
 			<picture>
 				<source srcset="img/foto-perfil.webp" type="image/webp">
 				<source srcset="img/foto-perfil.jpg" type="image/jpeg">
-				<img src="img/foto-perfil.jpg" alt="Foto de Marcos Campos" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-center mx-auto mb-6 border-8 border-slate-600 shadow-lg print:border-none"
+				<img src="img/foto-perfil.jpg" alt="Foto de Marcos Campos" class="w-40 h-40 md:w-48 md:h-48 rounded-full object-cover object-center mx-auto mb-6 border-8 border-slate-600 shadow-lg"
 					 onerror="this.onerror=null; this.src='https://placehold.co/192x192/64748B/E2E8F0?text=MC';">
 			</picture>
             
@@ -57,7 +247,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3">
 
             <!-- Columna Izquierda (Sidebar de Contacto y Habilidades) -->
-            <aside class="md:col-span-1 bg-slate-100 p-6 md:p-8 print:bg-white">
+            <aside class="md:col-span-1 bg-slate-100 p-6 md:p-8">
                 
                 <!-- Sección Contacto -->
                 <section class="mb-8">
